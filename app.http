@@ -1,0 +1,39 @@
+POST  http://localhost:3020/api/users/
+Content-Type: application/json
+
+{
+    "name" : "aravind",
+    "password" : "wow_test"
+}
+
+###
+#login below with above created to generate jwt token which is used to delete a user with id
+POST  http://localhost:3020/api/users/login
+Content-Type: application/json
+
+{
+    "name" : "aravind_test",
+    "password" : "wow_test"
+}
+
+###
+GET http://localhost:3020/
+
+
+###
+PUT  http://localhost:3020/api/users/6
+Content-Type: application/json
+
+{
+    "name" : "aravind_test",
+    "password" : "wow_test"
+}
+
+###
+#attach the jwt token generated via login and replace near JWT_TOKEN
+DELETE http://localhost:3020/api/users/1
+Authorization: Bearer JWT_TOKEN
+
+
+###
+DELETE http://localhost:3020/api/users/
